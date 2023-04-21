@@ -13,7 +13,7 @@ const src = resolve(_src)
 const dest = resolve(_dest)
 
 if (!(await exists(src))) {
-  throw new Deno.errors.NotFound("src is not found");
+  throw new Deno.errors.NotFound(`${src} is not found`);
 }
 
 let overwrite = false;
