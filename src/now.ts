@@ -1,3 +1,4 @@
+// show current time
 // 显示当前时间
 const date = new Date();
 
