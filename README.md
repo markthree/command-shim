@@ -1,6 +1,6 @@
 # command-shim
 
-自用的命令垫片 | Self used command shim
+windows 下自用的命令垫片 | Self used command shim for windows
 
 <br />
 
