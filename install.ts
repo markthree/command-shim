@@ -1,12 +1,13 @@
+import { execa } from "./shared/process.ts";
 import { walk } from "https://deno.land/std@0.184.0/fs/mod.ts";
 import { basename } from "https://deno.land/std@0.184.0/path/mod.ts";
 
-for await (const enrty of walk("./src", {
-  includeFiles: true,
-  includeDirs: false
-})) {
-  const p = Deno.run({
-    cmd: ["deno", "install", "-Afn", basename(enrty.name, ".ts"), enrty.path],
-  });
-  await p.status()
+for await (
+  const enrty of walk("./src", {
+    includeFiles: true,
+    includeDirs: false,
+  })
+) {
+  const { name, path } = enrty;
+  await execa(["deno", "install", "-Afn", basename(name, ".ts"), path]);
 }
