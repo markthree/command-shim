@@ -19,3 +19,4 @@ await emptyDir(src);
 
 console.log();
 console.log(`✔ CLEAN: %c${src}`, "color: yellow");
+console.log();
