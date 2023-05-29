@@ -11,11 +11,15 @@ if (!src) {
   throw new Deno.errors.InvalidData("src is required");
 }
 
-if (!(await exists(Deno.args[0]))) {
+if (!(await exists(src))) {
   throw new Deno.errors.NotFound(`${src} is not found`);
 }
 
 await emptyDir(src);
+
+if (Deno.args.includes('-d')) {
+  await Deno.remove(src)
+}
 
 console.log();
 console.log(`✔ CLEAN: %c${src}`, "color: yellow");
