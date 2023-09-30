@@ -1,11 +1,11 @@
 // clean a dir
 // 清理一个目录
-import { resolve } from "https://deno.land/std@0.192.0/path/mod.ts";
-import { walk } from "https://deno.land/std@0.192.0/fs/walk.ts"
-import { emptyDir, exists } from "https://deno.land/std@0.192.0/fs/mod.ts";
+import { resolve } from "https://deno.land/std@0.203.0/path/mod.ts";
+import { walk } from "https://deno.land/std@0.203.0/fs/walk.ts";
+import { emptyDir, exists } from "https://deno.land/std@0.203.0/fs/mod.ts";
 
 // clean cache
-if (Deno.args.includes('-c') || Deno.args.includes("--cache")) {
+if (Deno.args.includes("-c") || Deno.args.includes("--cache")) {
   for await (
     const entry of walk(Deno.cwd(), {
       includeDirs: true,
@@ -16,13 +16,12 @@ if (Deno.args.includes('-c') || Deno.args.includes("--cache")) {
       ],
     })
   ) {
-    await emptyDir(entry.path)
+    await emptyDir(entry.path);
     console.log(`✔ CLEAN: %c${entry.path}`, "color: yellow");
   }
 
-  Deno.exit(0)
+  Deno.exit(0);
 }
-
 
 const [_src] = Deno.args;
 
@@ -45,5 +44,3 @@ if (Deno.args.includes("-d")) {
 console.log();
 console.log(`✔ CLEAN: %c${src}`, "color: yellow");
 console.log();
-
-

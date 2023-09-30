@@ -1,11 +1,11 @@
 // 移动 src to dest
 // copy src 到 dest
-import { dirname, resolve } from "https://deno.land/std@0.192.0/path/mod.ts";
+import { dirname, resolve } from "https://deno.land/std@0.203.0/path/mod.ts";
 import {
   ensureDir,
   exists,
   move,
-} from "https://deno.land/std@0.192.0/fs/mod.ts";
+} from "https://deno.land/std@0.203.0/fs/mod.ts";
 
 const [_src, _dest] = Deno.args;
 

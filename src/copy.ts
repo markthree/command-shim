@@ -1,7 +1,7 @@
 // copy src to dest
 // copy src 到 dest
-import { resolve } from "https://deno.land/std@0.192.0/path/mod.ts";
-import { copy, exists } from "https://deno.land/std@0.192.0/fs/mod.ts";
+import { resolve } from "https://deno.land/std@0.203.0/path/mod.ts";
+import { copy, exists } from "https://deno.land/std@0.203.0/fs/mod.ts";
 
 const [_src, _dest] = Deno.args;
 
