@@ -1,7 +1,7 @@
 // clean a dir
 // 清理一个目录
-import { resolve } from "https://deno.land/std@0.203.0/path/mod.ts";
 import { walk } from "https://deno.land/std@0.203.0/fs/walk.ts";
+import { resolve } from "https://deno.land/std@0.203.0/path/mod.ts";
 import { emptyDir, exists } from "https://deno.land/std@0.203.0/fs/mod.ts";
 
 // clean cache
@@ -11,9 +11,7 @@ if (Deno.args.includes("-c") || Deno.args.includes("--cache")) {
       includeDirs: true,
       includeFiles: false,
       followSymlinks: true,
-      match: [
-        /node_modules|temp|cache|dist|\.(nuxt|output)/,
-      ],
+      match: [/node_modules|temp|cache|dist|\.(nuxt|output)/],
     })
   ) {
     await emptyDir(entry.path);
